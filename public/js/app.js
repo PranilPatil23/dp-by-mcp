@@ -6,6 +6,7 @@ const App = {
   templates: [],
   activeTemplateId: null,
   pendingSwitchId: null,
+  pendingDeleteId: null,
 
   async init() {
     await this.fetchTemplates();
@@ -59,7 +60,14 @@ const App = {
           Discard Changes
         </button>
 
-        <button class="btn btn-danger" id="resetBtn">
+        <button class="btn btn-danger" id="deleteTemplateBtn" title="Delete Template">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          Delete
+        </button>
+
+        <button class="btn btn-secondary" id="resetBtn">
           Reset
         </button>
 
@@ -73,6 +81,10 @@ const App = {
 
       document.getElementById('backBtn').onclick = () => this.requestSwitchView('dashboard');
       document.getElementById('discardBtn').onclick = () => TemplateEditor.discardChanges();
+      document.getElementById('deleteTemplateBtn').onclick = () => {
+        const tName = activeTemplate ? activeTemplate.name : 'Template';
+        this.confirmDeleteTemplate(this.activeTemplateId, tName);
+      };
       document.getElementById('resetBtn').onclick = () => TemplateEditor.resetTemplate();
       document.getElementById('saveBtn').onclick = () => TemplateEditor.saveChanges();
 
@@ -137,6 +149,59 @@ const App = {
     if (modal) modal.classList.remove('show');
   },
 
+  confirmDeleteTemplate(templateId, templateName) {
+    this.pendingDeleteId = templateId;
+    const textEl = document.getElementById('deleteModalText');
+    if (textEl) {
+      textEl.innerHTML = `Are you sure you want to delete <strong>${escapeHtml(templateName)}</strong>?<br><br>This template directory and all its files will be permanently deleted. This action cannot be undone.`;
+    }
+    const modal = document.getElementById('deleteModal');
+    if (modal) modal.classList.add('show');
+  },
+
+  hideDeleteModal() {
+    const modal = document.getElementById('deleteModal');
+    if (modal) modal.classList.remove('show');
+    this.pendingDeleteId = null;
+  },
+
+  async executeDeleteTemplate() {
+    if (!this.pendingDeleteId) return;
+
+    const templateId = this.pendingDeleteId;
+    const targetTemplate = this.templates.find(t => t.id === templateId);
+    const templateName = targetTemplate ? targetTemplate.name : templateId;
+
+    try {
+      const response = await fetch(`/api/templates/${templateId}`, {
+        method: 'DELETE'
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        this.hideDeleteModal();
+
+        // If currently editing this template or in editor mode, switch back to dashboard
+        if (this.activeTemplateId === templateId || this.currentView === 'editor') {
+          this.currentView = 'dashboard';
+          this.activeTemplateId = null;
+          document.getElementById('editorView').style.display = 'none';
+          document.getElementById('dashboardView').style.display = 'block';
+        }
+
+        await this.fetchTemplates();
+        DashboardView.init(this.templates);
+        this.renderHeader();
+        this.showToast(`Template "${templateName}" deleted successfully!`);
+      } else {
+        this.showToast(data.error || 'Failed to delete template', true);
+      }
+    } catch (err) {
+      console.error('Error deleting template:', err);
+      this.showToast('Error deleting template: ' + err.message, true);
+    }
+  },
+
   bindGlobalEvents() {
     // Unsaved Modal Buttons
     document.getElementById('modalCancel').onclick = () => {
@@ -159,6 +224,17 @@ const App = {
       this.pendingSwitchId = null;
       this.switchView(target);
     };
+
+    // Delete Modal Buttons
+    const deleteCancel = document.getElementById('deleteModalCancel');
+    if (deleteCancel) {
+      deleteCancel.onclick = () => this.hideDeleteModal();
+    }
+
+    const deleteConfirm = document.getElementById('deleteModalConfirm');
+    if (deleteConfirm) {
+      deleteConfirm.onclick = () => this.executeDeleteTemplate();
+    }
   },
 
   showToast(message, isError = false) {

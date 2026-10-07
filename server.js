@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { scanTemplates, saveTemplateState, resetTemplateState } = require('./lib/templateScanner');
+const { scanTemplates, saveTemplateState, resetTemplateState, deleteTemplate } = require('./lib/templateScanner');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -65,6 +65,17 @@ app.post('/api/templates/:id/reset', (req, res) => {
   try {
     const { id } = req.params;
     const result = resetTemplateState(id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// API: Delete template permanently
+app.delete('/api/templates/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = deleteTemplate(id);
     res.json(result);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });

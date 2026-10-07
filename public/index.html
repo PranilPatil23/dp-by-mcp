@@ -242,6 +242,25 @@
     </div>
   </div>
 
+  <!-- DELETE CONFIRMATION MODAL -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-box">
+      <div class="modal-title" style="color: var(--accent-rose); display: flex; align-items: center; gap: 8px;">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+        Delete Template
+      </div>
+      <div class="modal-text" id="deleteModalText">
+        Are you sure you want to delete this template? This folder and all its files will be permanently removed.
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="deleteModalCancel">Cancel</button>
+        <button class="btn btn-danger" id="deleteModalConfirm">Delete Template</button>
+      </div>
+    </div>
+  </div>
+
   <!-- JavaScript Modules -->
   <script src="js/dashboard.js"></script>
   <script src="js/editor.js"></script>
