@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Statement Template</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="statement-container">
+    <header class="statement-header">
+      <div class="logo-box">
+        <h1 class="bank-name">GLOBAL BANK CORP</h1>
+        <p class="tagline">Official Bank Account Statement</p>
+      </div>
+      <div class="period-box">
+        <div class="meta-row">
+          <span class="meta-label">Statement Date:</span>
+          <span class="meta-value">30 Sep 2026</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Statement Period:</span>
+          <span class="meta-value">01 Aug 2026 - 31 Aug 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="customer-info">
+      <div class="info-card">
+        <h3>Customer Summary</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Customer Name</span>
+            <span class="value">Pranil Patil</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Account Number</span>
+            <span class="value">4009881299301</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Account Type</span>
+            <span class="value">Savings Premium</span>
+          </div>
+          <div class="info-item">
+            <span class="label">IFSC Code</span>
+            <span class="value">GBC0001824</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Branch Name</span>
+            <span class="value">Connaught Place Main</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Registered Email</span>
+            <span class="value">pranil.patil@example.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <h3>Balance Summary</h3>
+        <div class="summary-row">
+          <span>Opening Balance</span>
+          <span class="amt">₹1,45,200.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Total Deposits</span>
+          <span class="amt credit">+₹85,000.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Total Withdrawals</span>
+          <span class="amt debit">-₹32,450.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Closing Balance</span>
+          <span class="amt">₹1,97,750.00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="transactions-section">
+      <h3>Recent Transactions</h3>
+      <table class="tx-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Reference No</th>
+            <th>Type</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15 Aug 2026</td>
+            <td>Salary Credit - TechCorp Solutions</td>
+            <td>TXN9984102</td>
+            <td class="credit">CREDIT</td>
+            <td>₹85,000.00</td>
+          </tr>
+          <tr>
+            <td>18 Aug 2026</td>
+            <td>Utility Bill - Power Distribution</td>
+            <td>TXN9984103</td>
+            <td class="debit">DEBIT</td>
+            <td>₹3,450.00</td>
+          </tr>
+          <tr>
+            <td>22 Aug 2026</td>
+            <td>Investment Transfer - Mutual Fund</td>
+            <td>TXN9984104</td>
+            <td class="debit">DEBIT</td>
+            <td>₹29,000.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="statement-footer">
+      <p>This is a computer generated account statement. If you find any discrepancy, please report within 14 days.</p>
+    </footer>
+  </div>
+</body>
+</html>

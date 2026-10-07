@@ -1,0 +1,36 @@
+{
+  "id": "credit-card-statement",
+  "name": "Credit Card Statement",
+  "description": "Platinum Credit Card Billing Summary and Reward Points Tracker",
+  "aspectRatio": "600 / 650",
+  "width": 600,
+  "height": 650,
+  "category": "Cards & Billing",
+  "categories": [
+    {
+      "name": "Cardholder Details",
+      "fields": [
+        { "id": "card_type", "label": "Card Type", "selector": ".card-type", "type": "text" },
+        { "id": "card_num", "label": "Card Number", "selector": ".card-num", "type": "text" },
+        { "id": "holder_name", "label": "Card Holder Name", "selector": ".holder-name", "type": "text" }
+      ]
+    },
+    {
+      "name": "Billing Summary",
+      "fields": [
+        { "id": "due_amt", "label": "Total Amount Due", "selector": ".due-amount", "type": "text" },
+        { "id": "min_due", "label": "Minimum Due", "selector": ".min-due", "type": "text" },
+        { "id": "due_date", "label": "Payment Due Date", "selector": ".due-date", "type": "text" },
+        { "id": "reward_pts", "label": "Reward Points", "selector": ".reward-pts", "type": "text" }
+      ]
+    },
+    {
+      "name": "Credit Limits",
+      "fields": [
+        { "id": "cred_limit", "label": "Credit Limit", "selector": ".cred-limit", "type": "text" },
+        { "id": "avail_limit", "label": "Available Credit", "selector": ".avail-limit", "type": "text" },
+        { "id": "cash_limit", "label": "Cash Limit", "selector": ".cash-limit", "type": "text" }
+      ]
+    }
+  ]
+}

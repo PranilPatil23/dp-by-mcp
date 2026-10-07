@@ -1,0 +1,73 @@
+{
+  "id": "digital-passbook",
+  "name": "Digital Passbook & Statements",
+  "description": "Official HDFC Bank Digital Passbook with Statement Tables, Credit Card, and Loan Statements",
+  "aspectRatio": "596 / 842",
+  "width": 596,
+  "height": 842,
+  "category": "Passbook & Banking",
+  "categories": [
+    {
+      "name": "Account Information (Frame 1)",
+      "fields": [
+        { "id": "acc_no", "label": "Account Number", "selector": ".details-column:first-child .detail-row:nth-child(1) .detail-value", "type": "text" },
+        { "id": "cust_name", "label": "Customer Name", "selector": ".details-column:first-child .detail-row:nth-child(2) .detail-value", "type": "text" },
+        { "id": "cust_id", "label": "Customer ID", "selector": ".details-column:first-child .detail-row:nth-child(3) .detail-value", "type": "text" },
+        { "id": "ckyc_no", "label": "CKYC No", "selector": ".details-column:first-child .detail-row:nth-child(4) .detail-value", "type": "text" },
+        { "id": "open_date", "label": "A/c Open Date", "selector": ".details-column:first-child .detail-row:nth-child(5) .detail-value", "type": "text" },
+        { "id": "joint_holder", "label": "Joint Holder", "selector": ".details-column:first-child .detail-row:nth-child(6) .detail-value", "type": "text" },
+        { "id": "address", "label": "Address", "selector": ".details-column:first-child .detail-row:nth-child(7) .detail-value", "type": "textarea" },
+        { "id": "city", "label": "City", "selector": ".details-column:first-child .detail-row:nth-child(8) .detail-value", "type": "text" },
+        { "id": "pincode", "label": "Pin Code", "selector": ".details-column:first-child .detail-row:nth-child(9) .detail-value", "type": "text" },
+        { "id": "state", "label": "State", "selector": ".details-column:first-child .detail-row:nth-child(10) .detail-value", "type": "text" },
+        { "id": "country", "label": "Country", "selector": ".details-column:first-child .detail-row:nth-child(11) .detail-value", "type": "text" },
+        { "id": "res_tel", "label": "Res Tel No", "selector": ".details-column:first-child .detail-row:nth-child(12) .detail-value", "type": "text" },
+        { "id": "mobile", "label": "Mobile No", "selector": ".details-column:first-child .detail-row:nth-child(13) .detail-value", "type": "text" },
+        { "id": "ppo_no", "label": "PPO No", "selector": ".details-column:first-child .detail-row:nth-child(14) .detail-value", "type": "text" }
+      ]
+    },
+    {
+      "name": "Branch & Product Information (Frame 1)",
+      "fields": [
+        { "id": "bank_title", "label": "Bank Name", "selector": ".account-title", "type": "text" },
+        { "id": "product_code", "label": "Product Code", "selector": ".details-column:nth-child(2) .detail-row:nth-child(1) .detail-value", "type": "text" },
+        { "id": "ac_currency", "label": "A/c Currency", "selector": ".details-column:nth-child(2) .detail-row:nth-child(2) .detail-value", "type": "text" },
+        { "id": "brand_code", "label": "Brand Code", "selector": ".details-column:nth-child(2) .detail-row:nth-child(3) .detail-value", "type": "text" },
+        { "id": "branch_name", "label": "Branch Name", "selector": ".details-column:nth-child(2) .detail-row:nth-child(4) .detail-value", "type": "text" },
+        { "id": "branch_address", "label": "Branch Address", "selector": ".details-column:nth-child(2) .detail-row:nth-child(5) .detail-value", "type": "textarea" },
+        { "id": "branch_city", "label": "Branch City", "selector": ".details-column:nth-child(2) .detail-row:nth-child(6) .detail-value", "type": "text" },
+        { "id": "branch_pincode", "label": "Branch Pin Code", "selector": ".details-column:nth-child(2) .detail-row:nth-child(7) .detail-value", "type": "text" },
+        { "id": "branch_state", "label": "Branch State", "selector": ".details-column:nth-child(2) .detail-row:nth-child(8) .detail-value", "type": "text" },
+        { "id": "branch_country", "label": "Branch Country", "selector": ".details-column:nth-child(2) .detail-row:nth-child(9) .detail-value", "type": "text" },
+        { "id": "branch_tel", "label": "Branch Tel No", "selector": ".details-column:nth-child(2) .detail-row:nth-child(10) .detail-value", "type": "text" },
+        { "id": "micr_code", "label": "MICR Code", "selector": ".details-column:nth-child(2) .detail-row:nth-child(11) .detail-value", "type": "text" },
+        { "id": "ifsc_code", "label": "IFSC Code", "selector": ".details-column:nth-child(2) .detail-row:nth-child(12) .detail-value", "type": "text" },
+        { "id": "rekyc_date", "label": "ReKYC Date", "selector": ".details-column:nth-child(2) .detail-row:nth-child(13) .detail-value", "type": "text" },
+        { "id": "nomination", "label": "Nomination", "selector": ".details-column:nth-child(2) .detail-row:nth-child(14) .detail-value", "type": "textarea" }
+      ]
+    },
+    {
+      "name": "Credit Card Statement (Frame 4)",
+      "fields": [
+        { "id": "card_holder", "label": "Card Holder Name", "selector": ".holder-name", "type": "text" },
+        { "id": "card_type", "label": "Card Type", "selector": ".card-type", "type": "text" },
+        { "id": "card_num", "label": "Card Number", "selector": ".card-num", "type": "text" },
+        { "id": "due_amount", "label": "Total Amount Due", "selector": ".due-amount", "type": "text" },
+        { "id": "min_due", "label": "Minimum Due", "selector": ".min-due", "type": "text" },
+        { "id": "due_date", "label": "Payment Due Date", "selector": ".due-date", "type": "text" },
+        { "id": "cred_limit", "label": "Credit Limit", "selector": ".cred-limit", "type": "text" },
+        { "id": "avail_limit", "label": "Available Credit", "selector": ".avail-limit", "type": "text" }
+      ]
+    },
+    {
+      "name": "Home Loan Statement (Frame 5)",
+      "fields": [
+        { "id": "loan_acc_no", "label": "Loan Account No", "selector": ".loan-statement-card .detail-row:nth-child(1) .detail-value", "type": "text" },
+        { "id": "borrower_name", "label": "Borrower Name", "selector": ".loan-statement-card .detail-row:nth-child(2) .detail-value", "type": "text" },
+        { "id": "sanctioned_amt", "label": "Sanctioned Amount", "selector": ".loan-statement-card .detail-row:nth-child(3) .detail-value", "type": "text" },
+        { "id": "interest_rate", "label": "Interest Rate", "selector": ".loan-statement-card .detail-row:nth-child(4) .detail-value", "type": "text" },
+        { "id": "emi_amt", "label": "EMI Amount", "selector": ".loan-statement-card .detail-row:nth-child(5) .detail-value", "type": "text" }
+      ]
+    }
+  ]
+}

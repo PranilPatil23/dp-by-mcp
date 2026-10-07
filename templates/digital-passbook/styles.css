@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --burgundy: #5a0d37;
+  --burgundy-dark: #491027;
+  --burgundy-deep: #641d35;
+  --cream: #fffac2;
+  --cream-light: #fffde4;
+  --ink: #111827;
+  --gold: #e4c17a;
+  --gray-border: #d2d5db;
+  --gray-bg: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #491027;
+  color: var(--ink);
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Outer Document Container */
+.passbook-doc {
+  width: 596px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+/* SECTION 1: Cover & Account Details */
+.passbook {
+  position: relative;
+  width: 596px;
+  min-height: 842px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #641d35;
+  background-image: url("assets/Frame 1171277868 (2).jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.hero {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 219px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.brand {
+  display: block;
+  width: 219px;
+  height: 41px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -.56px;
+  line-height: 1;
+}
+
+h1 strong, h1 b { font-weight: 700; }
+
+.content {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.balance-panel,
+.account-card {
+  width: 555px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.balance-panel {
+  padding: 20px;
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+.balance-panel h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+.help-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.help-card {
+  width: 166px;
+  min-height: 60px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  background: var(--burgundy);
+  color: #fff;
+  text-align: center;
+}
+
+.help-card--wide { width: 100%; }
+
+.help-card img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 4px;
+  object-fit: contain;
+}
+
+.help-card p {
+  margin: 0;
+  font-size: 8px;
+  line-height: 12px;
+  letter-spacing: -.16px;
+}
+
+.help-card b { font-weight: 700; }
+
+.fine-print {
+  width: 100%;
+  color: var(--burgundy);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: -.14px;
+  line-height: 10px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.fine-print p { margin: 0; }
+
+.account-card {
+  padding: 16px 20px 16px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.account-details-section {
+  width: 100%;
+  color: var(--ink);
+  font-size: 8px;
+  line-height: 12px;
+}
+
+.account-title {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.details-column {
+  display: table;
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.detail-row {
+  display: table-row;
+}
+
+.detail-label {
+  display: table-cell;
+  width: 28%;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.detail-colon {
+  display: table-cell;
+  width: 18px;
+  text-align: center;
+}
+
+.detail-value {
+  display: table-cell;
+  width: auto;
+  white-space: normal;
+  font-weight: 400;
+}
+
+/* SECTION 2: Statement Page */
+.statement-page {
+  width: 596px;
+  min-height: 842px;
+  margin: 0 auto;
+  background: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e2e8f0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 20px;
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.topbar__brand img {
+  height: 22px;
+  object-fit: contain;
+}
+
+.topbar__title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statement-table-wrapper {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.transactions {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7.5px;
+  color: var(--ink);
+}
+
+.transactions th {
+  border-bottom: 1px solid var(--gray-border);
+  padding: 6px 4px;
+  font-weight: 700;
+  text-align: left;
+  background: #f8fafc;
+}
+
+.transactions td {
+  border-bottom: 0.5px solid #e2e8f0;
+  padding: 4px;
+  text-align: left;
+}
+
+.transactions td.amount, .transactions th.amount {
+  text-align: right;
+}
+
+.statement-footer-logo {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.statement-footer-logo img {
+  height: 28px;
+}
+
+.doc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+  padding: 0 20px;
+  background: var(--burgundy);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 500;
+}
+
+/* SECTION 3: Notes & Instructions */
+.notes-instructions-page {
+  width: 596px;
+  margin: 0 auto;
+}
+
+.notes-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.notes-column h3 {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  color: var(--burgundy);
+  text-align: center;
+  font-weight: 700;
+}
+
+.notes-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 7.5px;
+  line-height: 11px;
+  color: #334155;
+}
+
+.notes-list li {
+  margin-bottom: 6px;
+}
+
+.notes-list li b {
+  color: var(--burgundy);
+}
+
+/* SECTION 4: Benefits of Imperia Banking */
+.benefits-card {
+  width: 596px;
+  margin: 0 auto;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 20px;
+  color: var(--burgundy);
+}
+
+.benefits-card h2 {
+  margin: 0 0 16px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.benefit-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  border: 1px solid #f1e6b8;
+}
+
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 7.5px;
+  font-weight: 600;
+  line-height: 10px;
+  color: var(--burgundy);
+}
+
+/* SECTION 5: Additional Services Grid */
+.services-card {
+  width: 596px;
+  margin: 0 auto;
+  background: var(--burgundy);
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.service-pill {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--burgundy);
+}
+
+.service-icon {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  background: var(--burgundy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+}
+
+.service-text {
+  font-size: 8px;
+  line-height: 11px;
+}
+
+.service-text b { font-weight: 700; }
+
+/* SECTION 6: Bottom Branding Footer */
+.bottom-branding-footer {
+  width: 596px;
+  margin: 0 auto;
+  height: 40px;
+  background: var(--burgundy);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.bottom-branding-footer img {
+  height: 24px;
+}

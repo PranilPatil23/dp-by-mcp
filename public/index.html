@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Management & Live Editing Dashboard</title>
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <!-- Global Application Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-icon">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">Template Studio</span>
+        <span class="brand-badge">Live Dashboard</span>
+      </div>
+    </div>
+
+    <!-- Header actions dynamically swapped by app.js -->
+    <div class="header-actions" id="headerActions">
+      <!-- Injected by app.js -->
+    </div>
+  </header>
+
+  <!-- DASHBOARD VIEW -->
+  <main id="dashboardView" class="dashboard-view">
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1>Existing Template Engine</h1>
+        <p>Dynamic detection, live editing, and isolated previews for your existing HTML/CSS templates. Drop any template folder into <code>templates/</code> to auto-discover it instantly.</p>
+      </div>
+    </div>
+
+    <div class="search-filter-bar">
+      <div class="search-box">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input type="text" id="templateSearch" placeholder="Search templates by name or category...">
+      </div>
+      <div class="stats-counter" id="templateCounter">0 Templates Discovered</div>
+    </div>
+
+    <div class="templates-grid" id="templatesGrid">
+      <!-- Template cards injected by dashboard.js -->
+    </div>
+  </main>
+
+  <!-- EDITOR VIEW -->
+  <main id="editorView" class="editor-view" style="display: none;">
+    <!-- MOBILE VIEW TOGGLE BAR (Visible on mobile/tablet viewports) -->
+    <div class="mobile-view-toggle" id="mobileViewToggle">
+      <button type="button" class="mobile-toggle-btn active" id="btnShowSidebar">
+        ✏️ Controls Panel
+      </button>
+      <button type="button" class="mobile-toggle-btn" id="btnShowPreview">
+        👁️ Live Preview
+      </button>
+    </div>
+
+    <!-- LEFT SIDEBAR: EDIT CONTROLS -->
+    <aside class="editor-sidebar">
+      <div class="editor-tabs">
+        <button class="tab-btn active" data-tab="contentTab">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+          </svg>
+          Content Fields
+        </button>
+        <button class="tab-btn" data-tab="designTab">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-23" />
+          </svg>
+          Design Overrides
+        </button>
+      </div>
+
+      <div class="tab-content">
+        <!-- Selected Element Inspector Panel (Dynamically populated on iframe element click) -->
+        <div id="selectedElementContainer" style="display: none;"></div>
+
+        <!-- Content Fields Tab -->
+        <div id="contentTab" class="tab-pane active">
+          <div style="margin-bottom: 14px;">
+            <input type="text" id="fieldSearch" class="field-input" placeholder="Filter fields...">
+          </div>
+          <div id="fieldsContainer">
+            <!-- Dynamic field controls injected by editor.js -->
+          </div>
+        </div>
+
+        <!-- Design Overrides Tab -->
+        <div id="designTab" class="tab-pane">
+          <!-- Typography Group -->
+          <div class="control-group">
+            <div class="control-group-title">Typography</div>
+            
+            <div class="field-control">
+              <label class="field-label">Font Family</label>
+              <select id="designFontFamily" class="field-select">
+                <option value="default">Template Default</option>
+                <optgroup label="Sans-Serif">
+                  <option value="Inter, sans-serif">Inter</option>
+                  <option value="Roboto, sans-serif">Roboto</option>
+                  <option value="'Open Sans', sans-serif">Open Sans</option>
+                  <option value="Montserrat, sans-serif">Montserrat</option>
+                  <option value="Poppins, sans-serif">Poppins</option>
+                  <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans</option>
+                  <option value="Outfit, sans-serif">Outfit</option>
+                  <option value="'Space Grotesk', sans-serif">Space Grotesk</option>
+                  <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                  <option value="Arial, sans-serif">Arial</option>
+                </optgroup>
+                <optgroup label="Serif">
+                  <option value="Georgia, serif">Georgia</option>
+                  <option value="'Playfair Display', serif">Playfair Display</option>
+                  <option value="Merriweather, serif">Merriweather</option>
+                  <option value="'Times New Roman', serif">Times New Roman</option>
+                  <option value="Garamond, serif">Garamond</option>
+                </optgroup>
+                <optgroup label="Monospace">
+                  <option value="'Fira Code', monospace">Fira Code</option>
+                  <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+                  <option value="'Courier New', monospace">Courier New</option>
+                </optgroup>
+                <optgroup label="Display & Decorative">
+                  <option value="Oswald, sans-serif">Oswald</option>
+                  <option value="Pacifico, cursive">Pacifico</option>
+                  <option value="Cinzel, serif">Cinzel</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="field-control">
+              <label class="field-label">Base Font Size (<span id="fontSizeVal">Default</span>) <button type="button" id="resetFontSize" class="reset-link">Reset</button></label>
+              <input type="range" id="designFontSize" min="8" max="32" value="14" class="field-input">
+            </div>
+
+            <div class="field-control">
+              <label class="field-label">Line Height</label>
+              <select id="designLineHeight" class="field-select">
+                <option value="default">Template Default</option>
+                <option value="1">Tight (1.0)</option>
+                <option value="1.15">Compact (1.15)</option>
+                <option value="1.25">Normal (1.25)</option>
+                <option value="1.4">Moderate (1.4)</option>
+                <option value="1.5">Relaxed (1.5)</option>
+                <option value="1.8">Loose (1.8)</option>
+                <option value="2.0">Double (2.0)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Color Tokens Group -->
+          <div class="control-group">
+            <div class="control-group-title">Colors</div>
+
+            <div class="field-control">
+              <label class="field-label">Text Color <button type="button" id="resetTextColor" class="reset-link">Reset</button></label>
+              <div class="color-input-row">
+                <input type="color" id="designTextColor" class="color-picker" value="#111827">
+                <input type="text" id="designTextColorHex" class="field-input" placeholder="Template Default">
+              </div>
+            </div>
+
+            <div class="field-control">
+              <label class="field-label">Card Background Color <button type="button" id="resetBgColor" class="reset-link">Reset</button></label>
+              <div class="color-input-row">
+                <input type="color" id="designBgColor" class="color-picker" value="#ffffff">
+                <input type="text" id="designBgColorHex" class="field-input" placeholder="Template Default">
+              </div>
+            </div>
+          </div>
+
+          <!-- Layout & Spacing Group -->
+          <div class="control-group">
+            <div class="control-group-title">Layout & Spacing</div>
+
+            <div class="field-control">
+              <label class="field-label">Container Width (<span id="widthVal">596px</span>)</label>
+              <input type="range" id="designWidth" min="400" max="900" value="596" class="field-input">
+            </div>
+
+            <div class="field-control">
+              <label class="field-label">Border Radius (<span id="radiusVal">Default</span>) <button type="button" id="resetBorderRadius" class="reset-link">Reset</button></label>
+              <input type="range" id="designBorderRadius" min="0" max="40" value="20" class="field-input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT STAGE: LIVE PREVIEW -->
+    <section class="editor-stage">
+      <div class="stage-toolbar">
+        <div class="zoom-controls">
+          <button class="zoom-btn" id="zoomOut" title="Zoom Out">-</button>
+          <span class="zoom-level" id="zoomVal">100%</span>
+          <button class="zoom-btn" id="zoomIn" title="Zoom In">+</button>
+          <button class="btn btn-secondary" id="zoomFit" style="padding: 4px 10px; font-size: 11px;">Fit</button>
+          <button class="btn btn-secondary" id="zoomReset" style="padding: 4px 10px; font-size: 11px;">100%</button>
+        </div>
+
+        <div style="font-size: 12px; color: var(--text-dim);" id="templateMetaBadge">
+          Dimensions: 596px × 842px
+        </div>
+
+        <div>
+          <button class="btn btn-secondary" id="toggleFullscreen">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+            Full Screen
+          </button>
+        </div>
+      </div>
+
+      <div class="stage-canvas" id="stageCanvas">
+        <div class="iframe-container" id="iframeContainer">
+          <iframe id="previewIframe" class="preview-iframe" title="Live Template Preview"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- UNSAVED CHANGES MODAL -->
+  <div class="modal-backdrop" id="unsavedModal">
+    <div class="modal-box">
+      <div class="modal-title">Unsaved Changes</div>
+      <div class="modal-text">You have unsaved changes in this template. Switching templates will discard your current unsaved edits. What would you like to do?</div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+        <button class="btn btn-danger" id="modalDiscard">Discard &amp; Switch</button>
+        <button class="btn btn-primary" id="modalSaveSwitch">Save &amp; Switch</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/dashboard.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

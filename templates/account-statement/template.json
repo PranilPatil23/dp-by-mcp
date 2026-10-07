@@ -1,0 +1,40 @@
+{
+  "id": "account-statement",
+  "name": "Account Statement",
+  "description": "Monthly Bank Account Statement with Summary and Recent Transactions",
+  "aspectRatio": "800 / 950",
+  "width": 800,
+  "height": 950,
+  "category": "Bank Statements",
+  "categories": [
+    {
+      "name": "Bank & Statement Info",
+      "fields": [
+        { "id": "bank_name", "label": "Bank Name", "selector": ".bank-name", "type": "text" },
+        { "id": "tagline", "label": "Tagline", "selector": ".tagline", "type": "text" },
+        { "id": "stmt_date", "label": "Statement Date", "selector": ".meta-row:nth-child(1) .meta-value", "type": "text" },
+        { "id": "stmt_period", "label": "Statement Period", "selector": ".meta-row:nth-child(2) .meta-value", "type": "text" }
+      ]
+    },
+    {
+      "name": "Customer Summary",
+      "fields": [
+        { "id": "cust_name", "label": "Customer Name", "selector": ".info-item:nth-child(1) .value", "type": "text" },
+        { "id": "acc_no", "label": "Account Number", "selector": ".info-item:nth-child(2) .value", "type": "text" },
+        { "id": "acc_type", "label": "Account Type", "selector": ".info-item:nth-child(3) .value", "type": "text" },
+        { "id": "ifsc", "label": "IFSC Code", "selector": ".info-item:nth-child(4) .value", "type": "text" },
+        { "id": "branch", "label": "Branch Name", "selector": ".info-item:nth-child(5) .value", "type": "text" },
+        { "id": "email", "label": "Registered Email", "selector": ".info-item:nth-child(6) .value", "type": "text" }
+      ]
+    },
+    {
+      "name": "Balance Overview",
+      "fields": [
+        { "id": "open_bal", "label": "Opening Balance", "selector": ".summary-row:nth-child(2) .amt", "type": "text" },
+        { "id": "deposits", "label": "Total Deposits", "selector": ".summary-row:nth-child(3) .amt", "type": "text" },
+        { "id": "withdrawals", "label": "Total Withdrawals", "selector": ".summary-row:nth-child(4) .amt", "type": "text" },
+        { "id": "close_bal", "label": "Closing Balance", "selector": ".summary-row.total .amt", "type": "text" }
+      ]
+    }
+  ]
+}

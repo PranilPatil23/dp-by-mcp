@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --burgundy: #5a0d37;
+  --burgundy-dark: #491027;
+  --burgundy-deep: #641d35;
+  --cream: #fffac2;
+  --cream-light: #fffde4;
+  --ink: #111827;
+  --gold: #e4c17a;
+  --gray-border: #d2d5db;
+  --gray-bg: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #491027;
+  color: var(--ink);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.passbook-doc {
+  width: 596px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-frame {
+  position: relative;
+  width: 596px;
+  height: 842px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* PAGE 1: Cover & Account Details */
+.page-1 {
+  background-color: #641d35;
+  background-image: url("assets/Frame 1171277868 (2).jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.hero {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 219px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.brand {
+  display: block;
+  width: 219px;
+  height: 41px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -.56px;
+  line-height: 1;
+}
+
+h1 strong, h1 b { font-weight: 700; }
+
+.content {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.balance-panel,
+.account-card {
+  width: 555px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.balance-panel {
+  padding: 16px 20px;
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+.balance-panel h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+.help-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.help-card {
+  width: 166px;
+  min-height: 58px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  background: var(--burgundy);
+  color: #fff;
+  text-align: center;
+}
+
+.help-card--wide { width: 100%; }
+
+.help-card img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 4px;
+  object-fit: contain;
+}
+
+.help-card p {
+  margin: 0;
+  font-size: 8px;
+  line-height: 11px;
+  letter-spacing: -.16px;
+}
+
+.help-card b { font-weight: 700; }
+
+.fine-print {
+  width: 100%;
+  color: var(--burgundy);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: -.14px;
+  line-height: 10px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.fine-print p { margin: 0; }
+
+.account-card {
+  padding: 14px 20px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.account-details-section {
+  width: 100%;
+  color: var(--ink);
+  font-size: 8px;
+  line-height: 12px;
+}
+
+.account-title {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.details-column {
+  display: table;
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.detail-row { display: table-row; }
+
+.detail-label {
+  display: table-cell;
+  width: 28%;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.detail-colon {
+  display: table-cell;
+  width: 16px;
+  text-align: center;
+}
+
+.detail-value {
+  display: table-cell;
+  width: auto;
+  white-space: normal;
+  font-weight: 400;
+}
+
+/* TOPBAR for Pages 2, 3, 4, 5 */
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 0 20px;
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.topbar__brand img {
+  height: 20px;
+  object-fit: contain;
+}
+
+.topbar__title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* PAGE 2: Statement Table Frame */
+.page-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.statement-body {
+  position: relative;
+  flex: 1;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.transactions {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7px;
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+
+.transactions th {
+  border-bottom: 0.5px solid var(--gray-border);
+  padding: 3px 4px;
+  font-weight: 700;
+  text-align: left;
+  background: #ffffff;
+}
+
+.transactions td {
+  border-bottom: 0.5px solid #f1f5f9;
+  padding: 2.5px 4px;
+  text-align: left;
+  height: 16px;
+}
+
+.transactions td.amount, .transactions th.amount {
+  text-align: right;
+}
+
+.watermark {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.watermark--top {
+  top: 40px;
+  left: 20px;
+  width: 290px;
+}
+
+.watermark--lower {
+  bottom: 60px;
+  left: 20px;
+  width: 100px;
+}
+
+.statement-footer-brand {
+  position: absolute;
+  right: 20px;
+  bottom: 35px;
+  z-index: 1;
+}
+
+.statement-footer-brand img {
+  height: 32px;
+}
+
+.doc-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 26px;
+  padding: 0 20px;
+  background: var(--burgundy);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 500;
+}
+
+/* PAGE 3: Notes & Instructions Frame */
+.page-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--burgundy);
+}
+
+.page-3-card {
+  margin: 16px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.notes-column h3 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: var(--burgundy);
+  text-align: center;
+  font-weight: 700;
+}
+
+.notes-list {
+  margin: 0;
+  padding-left: 14px;
+  font-size: 7.5px;
+  line-height: 11.5px;
+  color: #334155;
+}
+
+.notes-list li {
+  margin-bottom: 8px;
+}
+
+.notes-list li b { color: var(--burgundy); }
+
+/* PAGE 4: Benefits of Imperia Banking Frame */
+.page-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--burgundy);
+}
+
+.benefits-panel {
+  margin: 20px;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 24px 20px;
+  color: var(--burgundy);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.benefits-panel h2 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--burgundy);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.benefit-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 140px;
+  border: 1px solid #f1e6b8;
+  box-shadow: 0 4px 12px rgba(90, 13, 55, 0.06);
+}
+
+.benefit-photo {
+  width: 90px;
+  height: 65px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 11px;
+  color: var(--burgundy);
+}
+
+/* PAGE 5: Services Grid Frame */
+.page-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--burgundy);
+  padding: 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.service-pill {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--burgundy);
+  min-height: 70px;
+}
+
+.service-icon {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  background: var(--burgundy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+}
+
+.service-text {
+  font-size: 8.5px;
+  line-height: 12px;
+}
+
+.service-text b { font-weight: 700; }
+
+.bottom-brand-strip {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 0 0;
+}
+
+.bottom-brand-strip img {
+  height: 28px;
+}

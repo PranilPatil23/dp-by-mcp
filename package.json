@@ -1,0 +1,14 @@
+{
+  "name": "template-management-dashboard",
+  "version": "1.0.0",
+  "description": "Template Management + Live Editing Dashboard for Existing Templates",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
